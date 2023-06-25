@@ -146,6 +146,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 16. `static-server --version`, or globally install this handy NPM module
 17. `static-server` and check that http://localhost:9080 works ok
 18. Control-C and `mv a0 docs` ready for GitHub Pages to deploy
+19. `touch docs/.nojekyll` so that GitHub Pages dows not ignore the
+    underscore-prefixed folder 'docs/_next/'
 
 ---
 
