@@ -7,6 +7,10 @@ __`create-next-app` 13.4.7__
 ⊖ __Repo:__ <https://github.com/not-timid/a0>  
 ⊖ __URL:__ <https://not-timid.com/a0/>
 
+---
+
+## Tech stack
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with
 [`create-next-app`
 ](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). For
@@ -166,7 +170,13 @@ Serve the build locally:
 12. Control-C to stop `npm run dev`
 13. `npm run lint` and make sure there are no errors
 14. Delete the public/ folder (the two .svg files are not needed)
-15. `npm run build` and wait for the docs/ folder to fill up:
+15. Change the `"build"` script in package.json to:  
+    `"next build && touch docs/.nojekyll"`  
+    We need to add a docs/.nojekyll file at this point because:
+    - When `next build` starts running, it empties the docs/ folder
+    - GitHub Pages usually ignores underscore-prefixed folders, like docs/_next/
+    - The special docs/.nojekyll file overrides that GitHub Pages behavior
+16. `npm run build` and wait for the docs/ folder to fill up:
     ```
     > not-timid@0.0.0 build
     > next build
@@ -200,18 +210,16 @@ Serve the build locally:
     
     ○  (Static)  automatically rendered as static HTML (uses no initial props)
     ```
-16. Change the `"start"` script in package.json from `"next start"` to
+17. Change the `"start"` script in package.json from `"next start"` to
     `"npx serve@latest"`, because
     `"next start" does not work with "output: export" configuration`
-17. Add the `"prestart": "mv docs a0",` script to package.json
-18. Add the `"poststart": "mv a0 docs",` script to package.json
-19. `npm start`, which may prompt you to install the `serve` package:
+18. Add the `"prestart": "mv docs a0",` script to package.json
+19. And add the `"poststart": "mv a0 docs",` script
+20. `npm start`, which may prompt you to install the `serve` package:
     ```
     Need to install the following packages:
     serve@14.2.0
     Ok to proceed? (y) y
     ```
     ...and check that http://localhost:3000/a0/ works ok
-20. Control-C, and check that docs/ looks ready to deploy to GitHub Pages
-21. `touch docs/.nojekyll` so that GitHub Pages does not ignore the
-    underscore-prefixed folder docs/_next/
+21. Control-C, and check that docs/ looks ready to deploy to GitHub Pages
