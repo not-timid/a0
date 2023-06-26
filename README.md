@@ -1,19 +1,71 @@
 # a0
 
-__NOT-TIMID Alpha 0 - trying out the current stable version of Next.js, 13.4.7__
+__NOT-TIMID Alpha 0: A minimal 'Coming Soon' page, bootstrapped with__
+__`create-next-app` 13.4.7__
 
-https://not-timid.com/
+⊖ __Version:__ 0.0.0  
+⊖ __Repo:__ <https://github.com/not-timid/a0>  
+⊖ __URL:__ <https://not-timid.com/a0/>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with
+[`create-next-app`
+](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). For
+more about Next.js:
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [The Next.js GitHub repository](https://github.com/vercel/next.js/)
+
+---
+
+## Set up the project
+
+### __Set up your development machine__
+
+1. Check your __Git__ version:  
+   `git --version # should be 'git version 2.20.1' or greater`
+2. Check your __Node__ version:  
+   `node --version # should be 'v16.8.0' or greater`  
+   Node 16.8.0 is the minimum specified by [the Next.js 'installation' docs
+   ](https://nextjs.org/docs/getting-started/installation)
+3. Check your __VS Code__ version:  
+   `code --version # should be '1.79.0' or greater`
+4. In VS Code, install and enable the [`dnamsons.kimbie-dark-plus`
+   ](https://marketplace.visualstudio.com/items?itemName=dnamsons.kimbie-dark-plus)
+   theme
+
+### __Set up the repo locally__
+
+Clone the repository, and `cd` into it:  
+`git clone https://github.com/not-timid/a0.git && cd a0`
+
+Install the dependencies:  
+`npm i`
+
+Open the `a0` repo in VS Code:  
+`code .`
+
+---
+
+## Handy dev commands
+
+Serve a development build of the app locally, with hot-reloading:  
+`npm run dev`
+
+Use ESLint to check for problems with JavaScript code:  
+`npm run lint`
+
+Build the app to the docs/ folder:  
+`npm run build`
+
+Serve the build locally:  
+`npm run start`
 
 ---
 
 ## Steps to build this demo
 
-1. `node --version` is `v16.20.0`, which is greater than the minimum stated in
-   [the 'installation' docs, Node.js 16.8
-   ](https://nextjs.org/docs/getting-started/installation)
-2. `npx create-next-app@latest` to set up everything automatically
+1. `npx create-next-app@latest` to set up everything automatically
    ```
    Need to install the following packages:
      create-next-app@13.4.7
@@ -58,16 +110,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
    Success! Created not-timid at [-path-to-current-directory-]/not-timid
    ```
    ...note that node_modules/ is ~277 MB for 14,533 items
-3. As described in [the 'basePath' docs,
+2. As described in [the 'basePath' docs,
    ](https://nextjs.org/docs/app/api-reference/next-config-js/basePath),
    [the 'distDir' docs,
    ](https://nextjs.org/docs/app/api-reference/next-config-js/distDir) and
    [the 'deploying' docs,
    ](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-   change:  
-   `const nextConfig = {}` in next.config.js  
-   ...to...  
+   change:
+   ```js
+   const nextConfig = {}
    ```
+   in next.config.js, to:
+   ```js
    const nextConfig = {
      // Optional: Change the build app's base path `` -> `/a0`
      basePath: '/a0',
@@ -77,9 +131,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
      output: 'export',
    }
    ```
+3. Add a `"description"` to package.json, and change the `"version"` from
+   `"0.1.0"` to `"0.0.0"` (for Alpha 0)
 4. `npm run dev` to start the development server
    ```
-   > not-timid@0.1.0 dev
+   > not-timid@0.0.0 dev
    > next dev
    
    - ready started server on 0.0.0.0:3000, url: http://localhost:3000
@@ -96,8 +152,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
    - event compiled client and server successfully in 232 ms (20 modules)
    ```
    ...note that there is no .next/ folder yet
-5. Open http://localhost:3000/a0 _NOT http://localhost:3000 as suggested,_ to
-   see the default Next.js page.  
+5. Open http://localhost:3000/a0 _NOT http://localhost:3000 as suggested,_
+   to see the default Next.js page.  
    ...note that .next/ is ~70 MB for 57 items
 6. For the time being, replace the contents of the two .css files in src/app/
    with something more minimal
@@ -105,12 +161,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 8. Change the `title` and `description` in src/app/layout.tsx
 9. Replace the content of src/app/page.tsx and delete the two `import`s
 10. Create 256x256, 48x48, 32x32 and 16x16 GIFs
-11. `convert *.gif favicon.ico` and replace Next.js's default src/app/favicon.ico
+11. `convert *.gif favicon.ico` and replace Next.js's default
+    src/app/favicon.ico
 12. Control-C to stop `npm run dev`
 13. `npm run lint` and make sure there are no errors
-14. `npm run build` and wait for the docs/ folder to fill up:
+14. Delete the public/ folder (the two .svg files are not needed)
+15. `npm run build` and wait for the docs/ folder to fill up:
     ```
-    > not-timid@0.1.0 build
+    > not-timid@0.0.0 build
     > next build
     
     - info Creating an optimized production build  
@@ -130,35 +188,30 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
       ├ chunks/769-fd0a62696b61f5c4.js         25.3 kB
       ├ chunks/bce60fc1-49ee79ad31766ac6.js    50.5 kB
       ├ chunks/main-app-0c47c9e29c6a23eb.js    216 B
-      └ chunks/webpack-be906ccf662ec045.js     1.64 kB
+      └ chunks/webpack-0e9befa4c9ed903b.js     1.64 kB
     
     Route (pages)                              Size     First Load JS
     ─ ○ /404                                   182 B          74.7 kB
     + First Load JS shared by all              74.5 kB
       ├ chunks/framework-8883d1e9be70c3da.js   45 kB
-      ├ chunks/main-6a050bdd50e19c45.js        27.7 kB
+      ├ chunks/main-cdf6ebeb4c274dc4.js        27.7 kB
       ├ chunks/pages/_app-998b8fceeadee23e.js  195 B
-      └ chunks/webpack-be906ccf662ec045.js     1.64 kB
+      └ chunks/webpack-0e9befa4c9ed903b.js     1.64 kB
     
     ○  (Static)  automatically rendered as static HTML (uses no initial props)
     ```
-15. `mv docs a0` to temporarily rename the 'docs/' folder to 'a0/'
-16. `static-server --version`, or globally install this handy NPM module
-17. `static-server` and check that http://localhost:9080 works ok
-18. Control-C and `mv a0 docs` ready for GitHub Pages to deploy
-19. `touch docs/.nojekyll` so that GitHub Pages dows not ignore the
-    underscore-prefixed folder 'docs/_next/'
-
----
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial
-
-You can check out [the Next.js GitHub repository
-](https://github.com/vercel/next.js/) - your feedback and contributions are
-welcome!
+16. Change the `"start"` script in package.json from `"next start"` to
+    `"npx serve@latest"`, because
+    `"next start" does not work with "output: export" configuration`
+17. Add the `"prestart": "mv docs a0",` script to package.json
+18. Add the `"poststart": "mv a0 docs",` script to package.json
+19. `npm start`, which may prompt you to install the `serve` package:
+    ```
+    Need to install the following packages:
+    serve@14.2.0
+    Ok to proceed? (y) y
+    ```
+    ...and check that http://localhost:3000/a0/ works ok
+20. Control-C, and check that docs/ looks ready to deploy to GitHub Pages
+21. `touch docs/.nojekyll` so that GitHub Pages does not ignore the
+    underscore-prefixed folder docs/_next/

@@ -1,11 +1,14 @@
 {
   "name": "not-timid",
-  "version": "0.1.0",
-  "private": true,
+  "description": "NOT-TIMID Alpha 0: A minimal 'Coming Soon' page, bootstrapped with `create-next-app` 13.4.7",
+  "version": "0.0.0",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "prestart": "mv docs a0",
+    "start": "npx serve@latest",
+    "poststart": "mv a0 docs",
     "lint": "next lint"
   },
   "dependencies": {
