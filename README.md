@@ -12,8 +12,8 @@ __`create-next-app` 13.4.7__
 ## Tech stack
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with
-[`create-next-app`
-](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). For
+[`create-next-app`.
+](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) For
 more about Next.js:
 
 - [Next.js Documentation](https://nextjs.org/docs)
@@ -33,8 +33,9 @@ more about Next.js:
    Node 16.8.0 is the minimum specified by [the Next.js 'installation' docs
    ](https://nextjs.org/docs/getting-started/installation)
 3. Check your __VS Code__ version:  
-   `code --version # should be '1.79.0' or greater`
-4. In VS Code, install and enable the [`dnamsons.kimbie-dark-plus`
+   `code --version # should be '1.79.1' or greater`
+4. In VS Code, install and enable version 1.3.0 or greater of the
+   [`dnamsons.kimbie-dark-plus`
    ](https://marketplace.visualstudio.com/items?itemName=dnamsons.kimbie-dark-plus)
    theme
 
@@ -159,8 +160,8 @@ Serve the build locally:
 5. Open http://localhost:3000/a0 _NOT http://localhost:3000 as suggested,_
    to see the default Next.js page.  
    ...note that .next/ is ~70 MB for 57 items
-6. For the time being, replace the contents of the two .css files in src/app/
-   with something more minimal
+6. Delete src/app/page.module.css, and replace the contents of
+   src/app/globals.css with something more minimal
 7. Remove references to the 'Inter' font from src/app/layout.tsx
 8. Change the `title` and `description` in src/app/layout.tsx
 9. Replace the content of src/app/page.tsx and delete the two `import`s
